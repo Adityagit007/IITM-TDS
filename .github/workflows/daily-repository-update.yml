@@ -3,7 +3,7 @@ name: Daily Repository Update
 on:
   schedule:
     # Runs daily at 12:00 UTC (adjust the cron schedule as needed)
-    - cron: '33 22 * * *'
+    - cron: '35 22 * * *'
 
 jobs:
   update-repo:
