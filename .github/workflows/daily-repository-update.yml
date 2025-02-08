@@ -3,7 +3,7 @@ name: Daily Repository Update
 on:
   schedule:
     # Runs daily at 12:00 UTC (adjust the cron schedule as needed)
-    - cron: '0 12 * * *'
+    - cron: '33 22 * * *'
 
 jobs:
   update-repo:
@@ -17,14 +17,11 @@ jobs:
       # Step with your email in its name
       - name: Update repository with 24f2000027@ds.study.iitm.ac.in
         run: |
-          # Create a new file or update an existing one
-          echo "Daily update: $(date)" >> daily-update.log
+              echo "Daily update: $(date)" >> daily-update.log
+              git config --global user.name "GitHub Actions"
+              git config --global user.email "actions@github.com"
+              
+              git add daily-update.log
+              git diff --staged --quiet || git commit -m "Automated daily update"
+              git push origin main
 
-          # Configure Git
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-          # Add, commit, and push changes
-          git add daily-update.log
-          git commit -m "Automated daily update [24f2000027@ds.study.iitm.ac.in]"
-          git push origin main
