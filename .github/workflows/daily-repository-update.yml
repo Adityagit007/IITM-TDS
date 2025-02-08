@@ -1,6 +1,7 @@
 name: Daily Repository Update
 
 on:
+  workflow_dispatch:
   schedule:
     # Runs daily at 12:00 UTC (adjust the cron schedule as needed)
     - cron: '35 22 * * *'
